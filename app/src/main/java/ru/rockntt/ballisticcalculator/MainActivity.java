@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,22 +15,21 @@ public class MainActivity extends AppCompatActivity {
     Button calculate_button;
     TextView result;
 
-    static Float calculated_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        distance_x = (EditText) findViewById(R.id.distance);
-        calculate_button = (Button) findViewById(R.id.calculate_button);
-        result = (TextView) findViewById(R.id.result);
-    }
+        distance_x = findViewById(R.id.distance);
+        calculate_button = findViewById(R.id.calculate_button);
+        result = findViewById(R.id.result);
+        View.OnClickListener cButtonClick = v -> {
+            int distance_int = Integer.parseInt(distance_x.getText().toString());
+            int calculated_result = distance_int + 1;
+            String result_str = "" + calculated_result;
+            result.setText(result_str);
+        };
 
-    public void onClick(View v){
-        float distance_num = distance_x.getText();
-        calculated_result = 2 * distance_num;
-        result.setText(calculated_result);
+        calculate_button.setOnClickListener(cButtonClick);
     }
 }
-
-

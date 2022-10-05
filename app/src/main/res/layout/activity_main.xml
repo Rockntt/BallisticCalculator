@@ -77,7 +77,6 @@
         android:layout_height="40dp"
         android:layout_marginTop="12dp"
         android:text="Рассчитать"
-        android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
