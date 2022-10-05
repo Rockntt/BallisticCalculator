@@ -26,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener cButtonClick = v -> {
             double distance = Double.parseDouble(distance_x.getText().toString());
             double mortar_v = 36.8;
-            double calculated_result = Math.asin(distance * 9.8 / (mortar_v * mortar_v)) * 57;
+            double calculated_result = Math.asin(distance * 9.8 / (mortar_v * mortar_v)) * 57 / 2;
+            if (calculated_result < 45){
+                calculated_result = 90 - calculated_result;
+            }
             int cal_res_int = (int) calculated_result;
             String result_str = "" + cal_res_int;
             result.setText(result_str);
